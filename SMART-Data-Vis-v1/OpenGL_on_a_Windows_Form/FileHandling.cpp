@@ -67,6 +67,8 @@ void FileHandling::sortGraph(ClassData &data)
 	float xCoord = 0;
 	float yCoord = 0;
 
+	data.getLabels();
+
 	for (int i = 1; i < (data.values.size()); i++)					// OLD: for (int i = 1; i < (data.values.size() - 1); i++)
 	{																	// Columns
 		int nodeClass = 

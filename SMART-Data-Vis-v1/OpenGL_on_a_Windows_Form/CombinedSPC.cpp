@@ -171,6 +171,8 @@ void CombinedSPC::display() {
 		}
 	}
 
+	data.drawLabels();
+
 }
 
 // *** STUFF BELOW THIS IS FOR DRAGGING GRAPHS *** //////////////////////////////////////////

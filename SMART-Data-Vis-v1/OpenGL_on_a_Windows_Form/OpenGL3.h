@@ -110,6 +110,10 @@ namespace OpenGLForm
 		/// <summary>	The original ww. </summary>
 		int originalWW;
 
+		int cpPosx;
+		int cpPosy;
+
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		/// <summary>	Constructor. </summary>
 		///
@@ -132,9 +136,14 @@ namespace OpenGLForm
 			drawingDragged = false;
 			clickedDimension = -1;
 
+			originalWW = iWidth;
+			originalWH = iHeight;
+
 			// Set the position on the form
 			cp->X = 201;
+			cpPosx = 201;
 			cp->Y = 33;
+			cpPosy = 33;
 			cp->Height = iHeight;
 			cp->Width = iWidth;
 
@@ -157,6 +166,31 @@ namespace OpenGLForm
 			}
 		}
 
+		void resizeDrawingArea1(int xdifference) {
+				this->worldWidth -= xdifference;
+				if (xdifference < 0) {
+					SetWindowPos((HWND)this->Handle.ToPointer(), NULL, 10, 33, this->worldWidth -10, this->worldHeight, SWP_NOZORDER | SWP_NOACTIVATE);
+					cpPosx = 10;
+				}
+				else {
+					SetWindowPos((HWND)this->Handle.ToPointer(), NULL, 201, 33, this->worldWidth , this->worldHeight, SWP_NOZORDER | SWP_NOACTIVATE);
+					cpPosx = 201;
+				}
+		}
+		void resizeDrawingArea2(int xdifference) {
+			this->worldWidth -= xdifference;
+			if (xdifference < 0) {
+				SetWindowPos((HWND)this->Handle.ToPointer(), NULL, cpPosx, 33, this->worldWidth, this->worldHeight, SWP_NOZORDER | SWP_NOACTIVATE);
+			}
+			else {
+				SetWindowPos((HWND)this->Handle.ToPointer(), NULL, cpPosx, 33, this->worldWidth, this->worldHeight, SWP_NOZORDER | SWP_NOACTIVATE);
+			}
+		}
+		void resetDrawingArea() {
+			SetWindowPos((HWND)this->Handle.ToPointer(), NULL, 201, 33, originalWW, originalWH, SWP_NOZORDER | SWP_NOACTIVATE);
+			cpPosx = 201;
+		}
+
 		// CHANGE BACKGROUND COLOR
 		void setClassColor(float R, float G, float B, int classnumber) {
 			if (classnumber > 0 && classnumber <= data.numOfClasses) {
@@ -175,6 +209,26 @@ namespace OpenGLForm
 
 		int getClassSize() {
 			return graph1.data.numOfClasses;
+		}
+
+		void setGraph5ColumnSize(int newColumnSize) {
+			graph5.columns = newColumnSize;
+
+			graph5.data.xgraphcoordinates.clear();
+			graph5.data.ygraphcoordinates.clear();
+
+			graph5.data.xclasses.clear();
+			graph5.data.yclasses.clear();
+
+			if (graph5.columns < 10) { // After 10, no more resizing of graph width because the graphs will become too small, so after 10, add to the end only
+				graph5.data.graphwidth = worldWidth / (graph5.columns + 1);
+			}
+			graph5.fillGraphLocations();
+
+		}
+
+		void setGraph5ConnectedLineColor(float R, float G, float B) {
+			graph5.setLineColor(R, G, B);
 		}
 
 		/* RENDERING FOR DIFFERENT GRAPHS *//////////////////////////////////////////////////////////////////////////////////////
@@ -409,7 +463,7 @@ namespace OpenGLForm
 			graph5.normalizeData();
 			graph5.graphByPairs();
 			graph5.data.classsize = int(graph5.data.xdata[0].size());
-			graph5.data.graphwidth = worldWidth /(6); // Width size for each graph
+			graph5.data.graphwidth = worldWidth /(graph5.columns + 1); // Width size for each graph
 			graph5.data.graphheight = worldHeight / (graph5.data.numOfClasses + 1); // Height size for each graph
 			graph5.fillGraphLocations();  // Creates starting graph positions, and fills example data for now.
 			graph5.data.setClassColors();

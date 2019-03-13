@@ -71,12 +71,6 @@
     <ClInclude Include="FileHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGL2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGL3.h">
       <Filter>Header Files</Filter>
     </ClInclude>

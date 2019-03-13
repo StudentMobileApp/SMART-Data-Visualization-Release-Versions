@@ -5,9 +5,11 @@
 ///-------------------------------------------------------------------------------------------------
 
 #include "stdafx.h"
-//#include "Color.h"
 #include <Windows.h>
 #include <GL/glu.h>
+#include "glut.h"
+#include <locale>         // std::locale, std::isalpha
+
 
 #pragma once
 
@@ -92,6 +94,11 @@ public:
 	/// <summary>	Height size for each graph. </summary>
 	double graphheight;
 
+	//bool seeLabels;
+
+	std::string xlabels = "X-Axes: ";
+	std::string ylabels = "Y-Axes: ";
+
 	/// <summary>	Holds different dimensions of x data. </summary>
 	std::vector<std::vector<float> > xdata;
 	/// <summary>	Holds different dimensions of y data. </summary>
@@ -155,6 +162,8 @@ public:
 		xmax = 0;
 		ymax = 0;
 		classColor.clear();
+		leftWidth = 0;
+		bottomHeight = 0;
 	}
 
 	//Color lineColor;
@@ -233,6 +242,57 @@ public:
 		glPopMatrix(); // Removes the layer
 	}
 
+	bool is_digits(const std::string &str)
+	{
+		return str.find_first_not_of("0123456789") == std::string::npos;
+	}
+	//late entry: separate function for adding x,y labels
+	void getLabels()
+	{
+		//stores x axis labels, but skips first and last cell
+		for (int label = 1; label < values[0].size() - 1; label++)
+		{
+			if (label > 1) xlabels += ",";
+			if (!is_digits(values[0][label]))
+				xlabels += values[0][label];
+			else break;
+		}
+
+		//stores y axis labels
+		for (int label = 1; label < values.size(); label++)
+		{
+			if (label > 1) ylabels += ",";
+			if (!is_digits(values[label][0]))
+				ylabels += values[label][0];
+			else break;
+		}
+	}
+
+	void drawBitmapText(const char *string, float x, float y)
+	{
+		const char *c;
+		glRasterPos2f(x, y);
+
+		int i = 0;
+		for (c = string; *c != ' '; c++)
+		{
+			if (i < strlen(string))
+			{
+				glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, *c);
+			}
+			else
+			{
+				break;
+			}
+			i++;
+		}
+	}
+
+	void drawLabels()
+	{
+		drawBitmapText(xlabels.c_str(), .8*worldWidth, .98*worldHeight);
+		drawBitmapText(ylabels.c_str(), .05*worldWidth, .05*worldHeight);
+	}
 };
 
 

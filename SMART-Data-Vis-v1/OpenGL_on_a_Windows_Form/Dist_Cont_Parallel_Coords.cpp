@@ -161,26 +161,32 @@ void Dist_Cont_Parallel_Coords::drawData(float x1, float y1, int index) {
 	glPushMatrix();																						// Makes a new layer
 	glTranslatef(x1 + data.pan_x, y1 + data.pan_y, 0);                                                  // Translates starting position to draw
 	glBegin(GL_LINE_STRIP);
-	for (int i = 0; i < data.ydata[0].size()/*  xdata[0].size()*/; i++) {                                             
-		//glColor3ub(0, (data.classNum[i] * 50) + 1, 100);/*this line was out side the loop and it also has some changes*/
+	for (int i = 0; i < data.ydata[0].size()/*  xdata[0].size()*/; i++) {        
+
 		int classnum = data.classNum[i] - 1;
 		glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
+
 		for (int j = 0; j < data.ydata.size(); j++) {/*new loop*/
-			glVertex2f(xratio * i /*    xdata[index][i]   */,
-				yratio * data.ydata[j][i]  /*    ydata[index][i]   */);
+
+			if (j % (data.classNum.size()) == 0) {
+				glColor3f(0.8f, 0.8f, 0.8f);
+				glVertex2f(xratio * i, yratio * data.ydata[j][i]);
+				glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
+				glVertex2f(xratio * i, yratio * data.ydata[j][i]);
+			}
+			else {
+				glVertex2f(xratio * i, yratio * data.ydata[j][i]);
+			}
+
 		}
 	}
 	glEnd();
 
 
-	for (int i = 0; i < data.ydata[0].size(); i++) {                                               
+	for (int i = 0; i < data.ydata[0].size(); i++) { 
+		glPointSize(6);
 		for (int j = 0; j < data.ydata.size(); j++) {/*new loop*/
-			if (j == 0) {
-				glPointSize(6);
-			} // (3) Make a circle of the first point large than for the remaining  points in all visualizations (decrease other circles).
-			else {
-				glPointSize(3);
-			}
+
 			glBegin(GL_POINTS);
 
 			glColor3ub(128 + (j * 30), 0, 0);
@@ -188,6 +194,7 @@ void Dist_Cont_Parallel_Coords::drawData(float x1, float y1, int index) {
 			glVertex2f(xratio * i,
 				yratio * data.ydata[j][i]   /*    ydata[index][i]   */);
 			glEnd();
+			glPointSize(3);
 		}
 	}
 	
@@ -206,29 +213,6 @@ void Dist_Cont_Parallel_Coords::fillGraphLocations() {
 		data.xgraphcoordinates.push_back(data.worldWidth / 2);
 		data.ygraphcoordinates.push_back(data.worldHeight / 2);
 	}
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-/// <summary>	Draw graph. </summary>
-///
-// <author>Mahlet Saketa</author>
-// <editor>Allyn Vo</editor>
-///
-/// <param name="x">	The x coordinate. </param>
-/// <param name="y">	The y coordinate. </param>
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void Dist_Cont_Parallel_Coords::drawGraph(float x, float y) {                                                            
-	glPushMatrix();																						// Makes a new layer
-	glTranslatef(x + data.pan_x, y + data.pan_y, 0.0f);
-	glScalef((data.graphwidth / 2), (data.graphheight / 2), 0.0f);
-	glBegin(GL_LINE_STRIP);
-	glColor3ub(0, 0, 0);																				// Line color
-	glVertex2f(-1, -1);
-	glVertex2f(-1, 1);
-	glVertex2f(1, 1);
-	glEnd();
-	glPopMatrix();																						// Removes the layer
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -253,11 +237,14 @@ void Dist_Cont_Parallel_Coords::display() {
 	glLineWidth(2);
 
 
-	drawGraph(data.xgraphcoordinates[0], data.ygraphcoordinates[0]);
+	data.drawGraph(data.xgraphcoordinates[0], data.ygraphcoordinates[0]);
 
 	glLoadIdentity();																					// Reset the model-view matrix
 
 	drawData(data.xgraphcoordinates[0], data.ygraphcoordinates[0], 0);
+
+	glColor3d(0, 0, 0);
+	data.drawLabels();
                                                                  
 }
 
@@ -275,6 +262,9 @@ void Dist_Cont_Parallel_Coords::sortGraph(ClassData& data) {
 	std::vector<float> ydatatemp;
 	float yCoord = 0;
 	int count = 0;
+
+	data.getLabels();
+
 	for (int i = 1; i < (data.values.size() ); i++) {                                                   // Columns
 		int nodeClass = stoi(data.values[i][(data.values[0].size() - 1)]);                              // Get the class of the node
 		if (nodeClass > data.numOfClasses)																// Get the highest class number

@@ -161,7 +161,7 @@ void CombinedCPC::display() {
 		drawData(data.xgraphcoordinates[0], data.ygraphcoordinates[0], i);
 	}
 
-
+	data.drawLabels();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

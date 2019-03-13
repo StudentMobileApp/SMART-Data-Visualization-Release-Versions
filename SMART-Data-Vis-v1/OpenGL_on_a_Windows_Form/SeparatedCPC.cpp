@@ -164,5 +164,7 @@ void SeparatedCPC::display() {
 		int curClass = data.classNum[i] - 1;
 		drawData(data.xgraphcoordinates[curClass], data.ygraphcoordinates[curClass], i, curClass);
 	}
+
+	data.drawLabels();
 }
 

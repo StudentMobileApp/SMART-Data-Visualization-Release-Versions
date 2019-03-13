@@ -82,6 +82,7 @@ namespace OpenGL_on_a_Windows_Form
 
 	/// <summary>	Just to hold the file name for now to send to the graphs. </summary>
 	ClassData data;
+	FileHandling test;
 
 	/// <summary>	The old zoom value. </summary>
 	int oldZoomValue = 0;
@@ -115,7 +116,7 @@ namespace OpenGL_on_a_Windows_Form
 			//TODO: Add the constructor code here
 			//
 
-			OpenGL3 = gcnew COpenGL3(this, this->Width - this->panel1->Width - 40, //Width
+			OpenGL3 = gcnew COpenGL3(this, this->Width - this->panel1->Width - 40 - 200, //Width
 				this->Height - this->menuStrip1->Height - this->statusStrip1->Height - 55, //Height
 				graphType);
 		}
@@ -160,7 +161,7 @@ namespace OpenGL_on_a_Windows_Form
 	/// <summary>	The open tool strip menu item. </summary>
 	private: System::Windows::Forms::ToolStripMenuItem^  openToolStripMenuItem;
 	/// <summary>	The view tool strip menu item. </summary>
-	private: System::Windows::Forms::ToolStripMenuItem^  viewToolStripMenuItem;
+
 
 	/// <summary>	The graph 6. </summary>
 	private: System::Windows::Forms::Button^  graph6;
@@ -192,6 +193,14 @@ namespace OpenGL_on_a_Windows_Form
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel1;
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::NumericUpDown^  numericUpDown1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::GroupBox^  groupBox2;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Panel^  panel2;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  TS_SPC_CPC_button;
+
 
 
 
@@ -237,7 +246,6 @@ namespace OpenGL_on_a_Windows_Form
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->viewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->colorButton = (gcnew System::Windows::Forms::Button());
@@ -245,11 +253,21 @@ namespace OpenGL_on_a_Windows_Form
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->TS_SPC_CPC_button = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			this->groupBox2->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -396,9 +414,9 @@ namespace OpenGL_on_a_Windows_Form
 			// 
 			this->trackBar1->BackColor = System::Drawing::SystemColors::Control;
 			this->trackBar1->LargeChange = 1;
-			this->trackBar1->Location = System::Drawing::Point(153, 40);
+			this->trackBar1->Location = System::Drawing::Point(9, 122);
 			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(185, 90);
+			this->trackBar1->Size = System::Drawing::Size(185, 45);
 			this->trackBar1->TabIndex = 9;
 			this->trackBar1->Scroll += gcnew System::EventHandler(this, &Form1::trackBar1_Scroll);
 			// 
@@ -407,15 +425,15 @@ namespace OpenGL_on_a_Windows_Form
 			this->ZoomingLabel->AutoSize = true;
 			this->ZoomingLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->ZoomingLabel->Location = System::Drawing::Point(159, 20);
+			this->ZoomingLabel->Location = System::Drawing::Point(15, 102);
 			this->ZoomingLabel->Name = L"ZoomingLabel";
-			this->ZoomingLabel->Size = System::Drawing::Size(79, 30);
+			this->ZoomingLabel->Size = System::Drawing::Size(43, 16);
 			this->ZoomingLabel->TabIndex = 11;
 			this->ZoomingLabel->Text = L"Zoom";
 			// 
 			// vScrollBar1
 			// 
-			this->vScrollBar1->Location = System::Drawing::Point(70, 19);
+			this->vScrollBar1->Location = System::Drawing::Point(79, 26);
 			this->vScrollBar1->Minimum = -100;
 			this->vScrollBar1->Name = L"vScrollBar1";
 			this->vScrollBar1->Size = System::Drawing::Size(42, 50);
@@ -424,7 +442,7 @@ namespace OpenGL_on_a_Windows_Form
 			// 
 			// hScrollBar1
 			// 
-			this->hScrollBar1->Location = System::Drawing::Point(8, 38);
+			this->hScrollBar1->Location = System::Drawing::Point(17, 45);
 			this->hScrollBar1->Minimum = -100;
 			this->hScrollBar1->Name = L"hScrollBar1";
 			this->hScrollBar1->Size = System::Drawing::Size(50, 40);
@@ -436,22 +454,19 @@ namespace OpenGL_on_a_Windows_Form
 			this->PannningLabel->AutoSize = true;
 			this->PannningLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->PannningLabel->Location = System::Drawing::Point(6, 20);
+			this->PannningLabel->Location = System::Drawing::Point(15, 27);
 			this->PannningLabel->Name = L"PannningLabel";
-			this->PannningLabel->Size = System::Drawing::Size(106, 30);
+			this->PannningLabel->Size = System::Drawing::Size(57, 16);
 			this->PannningLabel->TabIndex = 10;
 			this->PannningLabel->Text = L"Panning";
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->fileToolStripMenuItem,
-					this->viewToolStripMenuItem
-			});
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->fileToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1280, 40);
+			this->menuStrip1->Size = System::Drawing::Size(1530, 24);
 			this->menuStrip1->TabIndex = 5;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -459,28 +474,22 @@ namespace OpenGL_on_a_Windows_Form
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->openToolStripMenuItem });
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(64, 36);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
 			this->fileToolStripMenuItem->Text = L"File";
 			// 
 			// openToolStripMenuItem
 			// 
 			this->openToolStripMenuItem->Name = L"openToolStripMenuItem";
-			this->openToolStripMenuItem->Size = System::Drawing::Size(173, 38);
+			this->openToolStripMenuItem->Size = System::Drawing::Size(103, 22);
 			this->openToolStripMenuItem->Text = L"Open";
 			this->openToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::openToolStripMenuItem_Click);
-			// 
-			// viewToolStripMenuItem
-			// 
-			this->viewToolStripMenuItem->Name = L"viewToolStripMenuItem";
-			this->viewToolStripMenuItem->Size = System::Drawing::Size(78, 36);
-			this->viewToolStripMenuItem->Text = L"View";
 			// 
 			// statusStrip1
 			// 
 			this->statusStrip1->ImageScalingSize = System::Drawing::Size(32, 32);
 			this->statusStrip1->Location = System::Drawing::Point(0, 698);
 			this->statusStrip1->Name = L"statusStrip1";
-			this->statusStrip1->Size = System::Drawing::Size(1280, 22);
+			this->statusStrip1->Size = System::Drawing::Size(1530, 22);
 			this->statusStrip1->TabIndex = 6;
 			this->statusStrip1->Text = L"statusStrip1";
 			// 
@@ -491,37 +500,38 @@ namespace OpenGL_on_a_Windows_Form
 			this->groupBox1->Controls->Add(this->ZoomingLabel);
 			this->groupBox1->Controls->Add(this->vScrollBar1);
 			this->groupBox1->Controls->Add(this->hScrollBar1);
-			this->groupBox1->Location = System::Drawing::Point(215, 44);
+			this->groupBox1->Location = System::Drawing::Point(1, 173);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(368, 80);
+			this->groupBox1->Size = System::Drawing::Size(200, 174);
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
 			// 
 			// colorButton
 			// 
-			this->colorButton->Location = System::Drawing::Point(3, 79);
+			this->colorButton->Location = System::Drawing::Point(4, 78);
 			this->colorButton->Name = L"colorButton";
-			this->colorButton->Size = System::Drawing::Size(268, 71);
+			this->colorButton->Size = System::Drawing::Size(192, 71);
 			this->colorButton->TabIndex = 0;
-			this->colorButton->Text = L"Choose Class Color";
+			this->colorButton->Text = L"Choose Color";
 			this->colorButton->UseVisualStyleBackColor = true;
 			this->colorButton->Click += gcnew System::EventHandler(this, &Form1::colorButton_Click);
 			// 
 			// tableLayoutPanel1
 			// 
+			this->tableLayoutPanel1->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::Single;
 			this->tableLayoutPanel1->ColumnCount = 1;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->label1, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->comboBox1, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->colorButton, 0, 2);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(971, 45);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(1, 9);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 51.19048F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 48.80952F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 78)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(274, 155);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(200, 155);
 			this->tableLayoutPanel1->TabIndex = 9;
 			// 
 			// label1
@@ -529,11 +539,11 @@ namespace OpenGL_on_a_Windows_Form
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(3, 0);
+			this->label1->Location = System::Drawing::Point(4, 1);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(197, 30);
+			this->label1->Size = System::Drawing::Size(127, 16);
 			this->label1->TabIndex = 12;
-			this->label1->Text = L"Choose A Class";
+			this->label1->Text = L"Change Class Color";
 			// 
 			// comboBox1
 			// 
@@ -541,18 +551,92 @@ namespace OpenGL_on_a_Windows_Form
 			this->comboBox1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(3, 42);
+			this->comboBox1->Location = System::Drawing::Point(4, 42);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(268, 33);
+			this->comboBox1->Size = System::Drawing::Size(192, 21);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboBox1_SelectedIndexChanged);
+			// 
+			// numericUpDown1
+			// 
+			this->numericUpDown1->BackColor = System::Drawing::SystemColors::Info;
+			this->numericUpDown1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->numericUpDown1->Location = System::Drawing::Point(44, 52);
+			this->numericUpDown1->MaximumSize = System::Drawing::Size(56, 0);
+			this->numericUpDown1->MinimumSize = System::Drawing::Size(56, 0);
+			this->numericUpDown1->Name = L"numericUpDown1";
+			this->numericUpDown1->Size = System::Drawing::Size(56, 20);
+			this->numericUpDown1->TabIndex = 10;
+			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
+			this->numericUpDown1->ValueChanged += gcnew System::EventHandler(this, &Form1::numericUpDown1_ValueChanged);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(554, 8);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(0, 13);
+			this->label2->TabIndex = 11;
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->numericUpDown1);
+			this->groupBox2->Location = System::Drawing::Point(1, 441);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(197, 82);
+			this->groupBox2->TabIndex = 12;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"TS-SPC-CPC Column Size";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(196, 43);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(37, 33);
+			this->button1->TabIndex = 10;
+			this->button1->Text = L"<<";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			// 
+			// panel2
+			// 
+			this->panel2->Controls->Add(this->TS_SPC_CPC_button);
+			this->panel2->Controls->Add(this->groupBox2);
+			this->panel2->Controls->Add(this->tableLayoutPanel1);
+			this->panel2->Controls->Add(this->groupBox1);
+			this->panel2->Location = System::Drawing::Point(1320, 43);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(209, 655);
+			this->panel2->TabIndex = 13;
+			// 
+			// TS_SPC_CPC_button
+			// 
+			this->TS_SPC_CPC_button->Location = System::Drawing::Point(19, 551);
+			this->TS_SPC_CPC_button->Name = L"TS_SPC_CPC_button";
+			this->TS_SPC_CPC_button->Size = System::Drawing::Size(166, 74);
+			this->TS_SPC_CPC_button->TabIndex = 13;
+			this->TS_SPC_CPC_button->Text = L"Change Connecting Line Color";
+			this->TS_SPC_CPC_button->UseVisualStyleBackColor = true;
+			this->TS_SPC_CPC_button->Click += gcnew System::EventHandler(this, &Form1::TS_SPC_CPC_button_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(1277, 42);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(37, 33);
+			this->button2->TabIndex = 14;
+			this->button2->Text = L">>";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
 			// Form1
 			// 
 			this->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->ClientSize = System::Drawing::Size(1280, 720);
-			this->Controls->Add(this->tableLayoutPanel1);
-			this->Controls->Add(this->groupBox1);
+			this->ClientSize = System::Drawing::Size(1530, 720);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->statusStrip1);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
@@ -570,6 +654,9 @@ namespace OpenGL_on_a_Windows_Form
 			this->groupBox1->PerformLayout();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			this->groupBox2->ResumeLayout(false);
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -616,6 +703,23 @@ namespace OpenGL_on_a_Windows_Form
 
 				data.fileName = toStandardString(path);
 
+				/*
+				try{
+					test.openFile(data);
+					test.sortGraph(data);
+					if (data.xdata.empty()) {
+						throw std::exception();
+						return;
+					}
+
+				}
+				catch(...){
+					// display an error message
+					MessageBox::Show("WARNING: Cannot correctly read data from file, try reformatting or another file.", "Trouble Reading File", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				*/
+
 				graphType = -1;
 				oldZoomValue = 0;
 				graph1_oldZoom = 0;
@@ -628,6 +732,10 @@ namespace OpenGL_on_a_Windows_Form
 				graph8_oldZoom = 0;
 				graph9_oldZoom = 0;
 
+				panel1showing = true;
+				panel2showing = true;
+				OpenGL3->resetDrawingArea();
+
 				Controls->Clear();
 				InitializeComponent();
 
@@ -638,6 +746,9 @@ namespace OpenGL_on_a_Windows_Form
 
 				fileopened = true;
 
+				numericUpDown1->Hide();
+				TS_SPC_CPC_button->Hide();
+				groupBox2->Hide();
 
 				
 			}
@@ -675,6 +786,7 @@ namespace OpenGL_on_a_Windows_Form
 		else if (graphType == 5)			// Separated Time Series SPC graph 5
 		{
 			OpenGL3->Render5();
+			
 		}
 		else if (graphType == 6)			// Time Series graph 6
 		{
@@ -693,8 +805,6 @@ namespace OpenGL_on_a_Windows_Form
 			OpenGL3->Render9();
 		}
 
-
-		
 
 		OpenGL3->SwapOpenGLBuffers();
 	}
@@ -715,6 +825,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 1;
 			OpenGL3->graphType = 1;
 			trackBar1->Value = graph1_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -732,6 +846,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 2;
 			OpenGL3->graphType = 2;
 			trackBar1->Value = graph2_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -749,6 +867,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 3;
 			OpenGL3->graphType = 3;
 			trackBar1->Value = graph3_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -766,6 +888,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 4;
 			OpenGL3->graphType = 4;
 			trackBar1->Value = graph4_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 	protected:
@@ -834,7 +960,12 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 5;
 			OpenGL3->graphType = 5;
 			trackBar1->Value = graph5_oldZoom;
+			numericUpDown1->Show();
+			TS_SPC_CPC_button->Show();
+			groupBox2->Show();
 		}
+
+
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -851,6 +982,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 6;
 			OpenGL3->graphType = 6;
 			trackBar1->Value = graph6_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -868,6 +1003,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 7;
 			OpenGL3->graphType = 7;
 			trackBar1->Value = graph7_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -885,6 +1024,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 8;
 			OpenGL3->graphType = 8;
 			trackBar1->Value = graph8_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -901,6 +1044,10 @@ namespace OpenGL_on_a_Windows_Form
 			graphType = 9;
 			OpenGL3->graphType = 9;
 			trackBar1->Value = graph9_oldZoom;
+
+			numericUpDown1->Hide();
+			TS_SPC_CPC_button->Hide();
+			groupBox2->Hide();
 		}
 	}
 
@@ -1024,6 +1171,62 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 	classnumberselected = comboBox1->SelectedIndex + 1;
 
 }
+private: System::Void numericUpDown1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+	
+	if (graphType == 5) {
+		OpenGL3->setGraph5ColumnSize((int)numericUpDown1->Value);
+	}
+}
+		 bool panel1showing = true;
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (panel1showing) {
+		panel1->Hide();
+		button1->Text = ">>";
+		button1->Left = 5;
+		OpenGL3->resizeDrawingArea1(-panel1->Width);
+		panel1showing = false;
+	}
+	else if (!panel1showing) {
+		panel1->Show();
+		button1->Text = "<<";
+		button1->Left = panel1->Right - 5;
+		OpenGL3->resizeDrawingArea1(panel1->Width);
+		panel1showing = true;
+	}
+
+}
+		 bool panel2showing = true;
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (panel2showing) {
+		panel2->Hide();
+		button2->Text = "<<";
+		button2->Left += panel2->Width;
+		OpenGL3->resizeDrawingArea2(-panel2->Width);
+		panel2showing = false;
+	}
+	else if (!panel2showing) {
+		panel2->Show();
+		button2->Text = ">>";
+		button2->Left -= panel2->Width;
+		OpenGL3->resizeDrawingArea2(panel2->Width);
+		panel2showing = true;
+	}
+}
+
+private: System::Void TS_SPC_CPC_button_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	// FOR CHANGING COLOR
+	if (colorDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		//this->colorPanel->BackColor = this->colorDialog1->Color;
+		float red = this->colorDialog1->Color.R;
+		float green = this->colorDialog1->Color.G;
+		float blue = this->colorDialog1->Color.B;
+
+		OpenGL3->setGraph5ConnectedLineColor(red, green, blue);
+	}
+
+}
+
 };
 }
 

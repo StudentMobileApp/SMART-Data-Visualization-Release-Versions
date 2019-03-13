@@ -20,6 +20,14 @@ class SeparatedTS_SPC
 {
 
 public:
+	int columns = 5;
+
+	float linecolor[3] = { 255,0,0 }; // Connecting line color, default to red
+	void setLineColor(float R, float G, float B) {
+		linecolor[0] = R;
+		linecolor[1] = G;
+		linecolor[2] = B;
+	}
 
 	/// <summary>	The xdatatemp. </summary>
 	std::vector<float> xdatatemp;

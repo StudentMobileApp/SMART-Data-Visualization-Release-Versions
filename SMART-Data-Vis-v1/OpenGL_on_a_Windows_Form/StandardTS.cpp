@@ -204,6 +204,7 @@ void StandardTS::display()
 		drawData(data.xgraphcoordinates[curClass], data.ygraphcoordinates[curClass], i);
 	}
 
+	data.drawLabels();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,6 +220,9 @@ void StandardTS::sortGraph2()
 	std::vector<float> ydatatemp;
 	float yCoord = 0;
 	int count = 0;
+
+	data.getLabels();
+
 	for (int i = 1; i < (data.values.size()); i++)												// Columns
 	{
 		int nodeClass = stoi(data.values[i][(data.values[0].size() - 1)]);                          // Get the class of the node

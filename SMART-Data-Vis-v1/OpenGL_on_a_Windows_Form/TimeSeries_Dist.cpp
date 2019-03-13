@@ -240,6 +240,7 @@ void TimeSeries_Dist::display()
 		drawData(data.xgraphcoordinates[curClass], data.ygraphcoordinates[curClass], i);
 	}
 
+	data.drawLabels();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -255,6 +256,9 @@ void TimeSeries_Dist::sortGraph2()
 	std::vector<float> ydatatemp;
 	float yCoord = 0;
 	int count = 0;
+
+	data.getLabels();
+
 	for (int i = 1; i < (data.values.size()); i++) {                                                // Columns
 		int nodeClass = stoi(data.values[i][(data.values[0].size() - 1)]);                          // Get the class of the node
 		if (nodeClass > data.numOfClasses)                                                          // Get the highest class number

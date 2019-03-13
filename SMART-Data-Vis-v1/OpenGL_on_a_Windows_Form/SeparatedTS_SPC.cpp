@@ -190,7 +190,7 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 	float x2;
 	float y2;
 
-	if (j < 4)
+	if (j < (columns -1))
 	{
 		x2 = data.xclasses[curClass][j + 1];                                                    // Connect the CPCS
 		y2 = data.yclasses[curClass][j + 1];
@@ -221,12 +221,12 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 	}
 	glEnd();
 
-	if (j != 4) {																				// Connect the time series graphs
+	if (j != (columns - 1)) {																				// Connect the time series graphs
 		if (index < data.classNum.size() - 1)
 		{
 			glLineWidth(1);
 			glBegin(GL_LINE_STRIP);
-			glColor3ub(255, 0, 0);																// Line color
+			glColor3ub(linecolor[0], linecolor[1], linecolor[2]);																// Line color
 
 			glVertex2f(xratio * data.xdata[index][data.classsize - 1],
 				yratio * data.ydata[index][data.classsize - 1]);
@@ -265,7 +265,7 @@ void SeparatedTS_SPC::fillGraphLocations()
 		data.xgraphcoordinates.clear();
 		data.ygraphcoordinates.clear();
 
-		for (int i = 1; i <= 5; i++)
+		for (int i = 1; i <= columns; i++)
 		{
 			data.xgraphcoordinates.push_back(data.graphwidth * i + i * 5);
 			data.ygraphcoordinates.push_back(data.graphheight * k + k * 10);
@@ -305,7 +305,7 @@ void SeparatedTS_SPC::display()
 
 	for (int k = 0; k < data.numOfClasses; k++)													// Draws a graph for each dimension
 	{
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < columns; i++)
 			data.drawGraph(data.xclasses[k][i], data.yclasses[k][i]);
 		glLoadIdentity();																		// Reset the model-view matrix
 	}
@@ -338,13 +338,15 @@ void SeparatedTS_SPC::display()
 		{
 			if (previous == k)
 			{
-				drawData(data.xclasses[k][i % 5], data.yclasses[k][i % 5], countTotal, k, i % 5);
+				drawData(data.xclasses[k][i % columns], data.yclasses[k][i % columns], countTotal, k, i % columns);
 				countTotal++;
 			}
 		}
 		previous = k + 1;
 	}
 
+	glColor3b(0, 0, 0);
+	data.drawLabels();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -362,6 +364,8 @@ void SeparatedTS_SPC::sortGraph2(ClassData& data)
 	std::vector<float> ydatatemp;
 	float yCoord = 0;
 	int count = 0;
+
+	data.getLabels();
 
 	for (int i = 1; i < (data.values.size()); i++)
 	{

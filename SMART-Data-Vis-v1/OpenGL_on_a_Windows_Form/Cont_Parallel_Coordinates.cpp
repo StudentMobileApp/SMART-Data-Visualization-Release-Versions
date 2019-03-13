@@ -78,7 +78,16 @@ void Cont_Parallel_Coordinates::drawData(float x1, float y1, int index)
 		int classnum = data.classNum[i] - 1;
 		glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
 		for (int j = 0; j < data.ydata[0].size(); j++) {
-			glVertex2f(xratio * (i), yratio * data.ydata[i][j] /* ydatatemp[i] */);
+			if (j % (data.classsize) == 0) {
+				glColor3f(0.8f, 0.8f, 0.8f);
+				glVertex2f(xratio * (i), yratio * data.ydata[i][j] /* ydatatemp[i] */);
+				glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
+				glVertex2f(xratio * (i), yratio * data.ydata[i][j] /* ydatatemp[i] */);
+			}
+			else {
+				glVertex2f(xratio * (i), yratio * data.ydata[i][j] /* ydatatemp[i] */);
+			}
+			
 		}
 	}
 	glEnd();
@@ -122,6 +131,9 @@ void Cont_Parallel_Coordinates::sortGraph(ClassData& data)
 	float xCoord = 0;
 	float yCoord = 0;
 	int count = 0;
+
+	data.getLabels();
+
 	for (int i = 1; i < (data.values.size()); i++)						// Columns
 	{     
 		int nodeClass = stoi(data.values[i][(data.values[0].size() - 1)]);			// Get the class of the node
@@ -179,6 +191,9 @@ void Cont_Parallel_Coordinates::display()
 
 
 	drawData(data.xgraphcoordinates[0], data.ygraphcoordinates[0], 0);
+
+	glColor3d(0, 0, 0);
+	data.drawLabels();
 
 }
 
