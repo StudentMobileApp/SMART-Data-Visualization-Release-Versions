@@ -51,5 +51,9 @@ public:
 
 	void sortGraph(ClassData&);
 
+	void normalizeData(ClassData &data);
+
+	void normalizeDataV2(ClassData &data);
+
 };
 

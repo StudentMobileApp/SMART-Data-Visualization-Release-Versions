@@ -192,8 +192,8 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 
 	if (j < (columns -1))
 	{
-		x2 = data.xclasses[curClass][j + 1];                                                    // Connect the CPCS
-		y2 = data.yclasses[curClass][j + 1];
+		x2 = data.xclasses[(data.classNum[index] - 1)][j + 1];                                                    // Connect the CPCS
+		y2 = data.yclasses[(data.classNum[index] - 1)][j + 1];
 	}
 	else
 	{
@@ -202,10 +202,10 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 	}
 
 
-	y2 -= (data.graphheight / 2);
+	y2 += (data.graphheight / 2);
 	x2 -= (data.graphwidth / 2);
 	x1 -= (data.graphwidth / 2);                                                                // Start x's and y's from the bottom left of the graph
-	y1 -= (data.graphheight / 2);
+	y1 += (data.graphheight / 2);
 
 	glPushMatrix();																				// Makes a new layer
 	glTranslatef(x1 + data.pan_x, y1 + data.pan_y, 0);                                          // Translates starting position to draw
@@ -213,11 +213,13 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 	glBegin(GL_LINE_STRIP);
 
 	//glColor3ub(0, ((curClass + 1) * 50), 100);														// Line color
-	glColor3ub(data.classColor[curClass][0], data.classColor[curClass][1], data.classColor[curClass][2]);
+	int classnum = data.classNum[index] - 1;
+	glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
+	//glColor3ub(data.classColor[(data.classNum[index] - 1)][0], data.classColor[(data.classNum[(data.classNum[index] - 1)])][1], data.classColor[(data.classNum[(data.classNum[index] - 1)])][2]);
 
 	for (int i = 0; i < data.classsize; i++) // Draw Left Vertex
 	{
-		glVertex2f(xratio * data.xdata[index][i], yratio * data.ydata[index][i]);
+		glVertex2f(xratio * data.xdata[index][i], -yratio * data.ydata[index][i]);
 	}
 	glEnd();
 
@@ -229,10 +231,10 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 			glColor3ub(linecolor[0], linecolor[1], linecolor[2]);																// Line color
 
 			glVertex2f(xratio * data.xdata[index][data.classsize - 1],
-				yratio * data.ydata[index][data.classsize - 1]);
+				-yratio * data.ydata[index][data.classsize - 1]);
 
 			glVertex2f((x2 - x1) + xratio * data.xdata[index + 1][data.classsize - 1],
-				(y2 - y1) + yratio * data.ydata[index + 1][data.classsize - 1]);		
+				(y2 - y1) - yratio * data.ydata[index + 1][data.classsize - 1]);		
 			glEnd();
 		}
 	}
@@ -243,7 +245,7 @@ void SeparatedTS_SPC::drawData(float x1, float y1, int index, int curClass, int 
 
 	for (int i = 0; i < data.classsize; i++) 
 	{
-		glVertex2f(xratio * data.xdata[index][data.classsize - 1], yratio * data.ydata[index][data.classsize - 1]);
+		glVertex2f(xratio * data.xdata[index][data.classsize - 1], -yratio * data.ydata[index][data.classsize - 1]);
 	}
 	glEnd();
 	glPopMatrix();   // Removes the layer
@@ -338,7 +340,7 @@ void SeparatedTS_SPC::display()
 		{
 			if (previous == k)
 			{
-				drawData(data.xclasses[k][i % columns], data.yclasses[k][i % columns], countTotal, k, i % columns);
+				drawData(data.xclasses[(data.classNum[countTotal] - 1)][i % columns], data.yclasses[(data.classNum[countTotal] - 1)][i % columns], countTotal, k, i % columns);
 				countTotal++;
 			}
 		}

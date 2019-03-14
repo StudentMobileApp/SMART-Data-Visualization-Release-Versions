@@ -1,1 +1,135 @@
-﻿
+﻿  stdafx.cpp
+  AssemblyInfo.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\assemblyinfo.cpp(40): warning C4947: 'System::Security::Permissions::SecurityAction::RequestMinimum': marked as obsolete
+  \\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\assemblyinfo.cpp(40): note: Message: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.'
+  CombinedCPC.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+  CombinedSPC.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\combinedspc.cpp(58): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\combinedspc.cpp(165): warning C4018: '<': signed/unsigned mismatch
+  Cont_Parallel_Coordinates.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(47): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(76): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(80): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(98): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(99): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(137): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(143): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(219): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(220): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(233): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\cont_parallel_coordinates.cpp(234): warning C4018: '<': signed/unsigned mismatch
+  Dist_Cont_Parallel_Coords.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(51): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(52): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(65): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(66): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(100): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(101): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(130): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(131): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(164): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(169): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(186): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(188): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(212): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(268): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\dist_cont_parallel_coords.cpp(273): warning C4018: '<': signed/unsigned mismatch
+  FileHandling.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(72): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(80): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(123): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(124): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(138): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(139): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(167): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(168): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(182): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(183): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(215): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(216): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(237): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\filehandling.cpp(238): warning C4018: '<': signed/unsigned mismatch
+  OpenGL_on_a_Windows_Form.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+  SeparatedCPC.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedcpc.cpp(103): warning C4018: '<': signed/unsigned mismatch
+  SeparatedSPC.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedspc.cpp(205): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedspc.cpp(206): warning C4018: '<': signed/unsigned mismatch
+  SeparatedTS_SPC.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(74): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(75): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(85): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(86): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(102): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(103): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(122): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(123): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(227): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(265): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(319): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(336): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(372): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(381): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(416): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\separatedts_spc.cpp(417): warning C4018: '<': signed/unsigned mismatch
+  StandardTS.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(68): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(69): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(90): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(91): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(119): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(153): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(164): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(214): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(238): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\standardts.cpp(244): warning C4018: '<': signed/unsigned mismatch
+  TimeSeries_Dist.cpp
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(253): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(262): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\classdata.h(279): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(63): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(64): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(78): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(79): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(115): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(116): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(149): warning C4018: '<=': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(183): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(192): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(239): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(263): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\downloads\pauls added text version\smart-data-vis-v1\opengl_on_a_windows_form\timeseries_dist.cpp(268): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  OpenGL_on_a_Windows_Form.vcxproj -> \\Mac\Home\Downloads\Pauls added text version\SMART-Data-Vis-v1\Debug\OpenGL_on_a_Windows_Form.exe

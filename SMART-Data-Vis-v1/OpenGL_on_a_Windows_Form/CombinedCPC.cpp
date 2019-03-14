@@ -86,7 +86,7 @@ void CombinedCPC::drawData(float x1, float y1, int index)
 	float yratio = data.graphheight / data.ymax;
 
 	x1 -= (data.graphwidth / 2);                                        // Start x's and y's from the bottom left of the graph
-	y1 -= (data.graphheight / 2);
+	y1 += (data.graphheight / 2);
 
 	glPushMatrix();                                                     // Makes a new layer
 	glTranslatef(x1 + data.pan_x, y1 + data.pan_y, 0);                  // Translates starting position to draw
@@ -98,8 +98,7 @@ void CombinedCPC::drawData(float x1, float y1, int index)
 	glColor3ub(data.classColor[classnum][0], data.classColor[classnum][1], data.classColor[classnum][2]);
 
 	for (int i = 0; i < (signed)data.classsize; i++) {                  
-		glVertex2f(xratio * data.xdata[index][i],
-			yratio * data.ydata[index][i]);
+		glVertex2f(xratio * data.xdata[index][i], -yratio * data.ydata[index][i]);
 	}
 	glEnd();
 	//glPointSize(4);
@@ -115,7 +114,7 @@ void CombinedCPC::drawData(float x1, float y1, int index)
 		}
 		glBegin(GL_POINTS);
 
-		glVertex2f(xratio * data.xdata[index][i], yratio * data.ydata[index][i]);
+		glVertex2f(xratio * data.xdata[index][i], -yratio * data.ydata[index][i]);
 
 		glEnd();
 	}

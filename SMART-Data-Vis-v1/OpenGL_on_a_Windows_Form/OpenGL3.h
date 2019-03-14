@@ -419,9 +419,11 @@ namespace OpenGLForm
 			data.ymax = 0;
 			newFile.openFile(data);
 			newFile.sortGraph(data);
+			newFile.normalizeData(data);
 
 			// S-CPC
 			graph1.data = data;
+			//newFile.normalizeDataV2(graph1.data);
 			graph1.data.classsize = int(data.xdata[0].size());
 			graph1.data.graphwidth = worldWidth * 0.4; // Width size for each graph
 			graph1.data.graphheight = worldHeight / (graph1.data.numOfClasses + 1); // Height size for each graph
@@ -430,6 +432,7 @@ namespace OpenGLForm
 
 			// C-CPC
 			graph2.data = data;
+			//newFile.normalizeDataV2(graph1.data);
 			graph2.data.classsize = int(data.xdata[0].size());
 			graph2.data.graphwidth = worldWidth / 2; // Width size for each graph
 			graph2.data.graphheight = worldHeight / 2; // Height size for each graph
@@ -438,6 +441,7 @@ namespace OpenGLForm
 
 			// S-SPC
 			graph3.data = data;
+			//newFile.normalizeData(graph1.data);
 			graph3.data.classsize = int(data.xdata[0].size());
 			graph3.data.graphwidth = worldWidth / (data.xdata[0].size() + 1); // Width size for each graph
 			graph3.data.graphheight = worldHeight / (graph3.data.numOfClasses + 1); // Height size for each graph
@@ -446,6 +450,7 @@ namespace OpenGLForm
 
 			// C-SPC
 			graph4.data = data;
+			//newFile.normalizeData(graph1.data);
 			graph4.data.classsize = int(data.xdata[0].size());
 			graph4.data.graphwidth = worldWidth / (graph4.data.classsize + 1); // Width size for each graph
 			graph4.data.graphheight = worldHeight / (2); // Height size for each graph

@@ -106,3 +106,151 @@ void FileHandling::sortGraph(ClassData &data)
 		ydatatemp.clear();
 	}
 }
+
+void FileHandling::normalizeData(ClassData &data)
+{
+	// Y Normalization
+	std::vector<float> minYcol;
+	std::vector<float> maxYcol;
+	std::vector<float> temp;
+
+	std::vector<std::vector<float> > convertedValues; // NEW
+
+
+	float min = 0;
+	float max = 0;
+
+	for (int j = 0; j < data.ydata[0].size(); j++) {                                               // Gets the min and max of every column
+		for (int i = 0; i < data.ydata.size(); i++) {
+			if (data.ydata[i][j] > max) {
+				max = data.ydata[i][j];
+			}
+			if (data.ydata[i][j] < min) {
+				min = data.ydata[i][j];
+			}
+		}
+		
+	}
+	minYcol.push_back(min);
+	maxYcol.push_back(max);
+	max = 0;
+	min = 0;
+	for (int i = 0; i < data.ydata.size(); i++) {                                                  // Normalize the data from 0 - 1
+		for (int j = 0; j < data.ydata[0].size(); j++) {
+			float original = data.ydata[i][j];
+			float currentMin = minYcol[0];
+			float currentMax = maxYcol[0];
+			float converted = (original - currentMin) / (currentMax - currentMin);
+
+			temp.push_back(converted);
+		}
+		convertedValues.push_back(temp);
+		temp.clear();
+	}
+	data.ydata.clear();
+	data.ydata = convertedValues;																	// Fill ydata coordinates with normalized data  
+	convertedValues.clear();
+	//data.xmax = data.ydata[0].size();																// Change xMax and yMax to normalized data
+	data.ymax = 1;
+
+	// X Normalization after this point
+	std::vector<float> minXcol;
+	std::vector<float> maxXcol;
+	temp.clear();
+
+	convertedValues.clear();
+
+
+	min = 0;
+	max = 0;
+
+	for (int j = 0; j < data.xdata[0].size(); j++) {                                               // Gets the min and max of every column
+		for (int i = 0; i < data.xdata.size(); i++) {
+			if (data.xdata[i][j] > max) {
+				max = data.xdata[i][j];
+			}
+			if (data.xdata[i][j] < min) {
+				min = data.xdata[i][j];
+			}
+		}
+
+	}
+	minXcol.push_back(min);
+	maxXcol.push_back(max);
+	max = 0;
+	min = 0;
+	for (int i = 0; i < data.xdata.size(); i++) {                                                  // Normalize the data from 0 - 1
+		for (int j = 0; j < data.xdata[0].size(); j++) {
+			float original = data.xdata[i][j];
+			float currentMin = minXcol[0];
+			float currentMax = maxXcol[0];
+			float converted = (original - currentMin) / (currentMax - currentMin);
+
+			temp.push_back(converted);
+		}
+		convertedValues.push_back(temp);
+		temp.clear();
+	}
+	data.xdata.clear();
+	data.xdata = convertedValues;																	// Fill ydata coordinates with normalized data  
+	convertedValues.clear();
+	//data.xmax = data.ydata[0].size();																// Change xMax and yMax to normalized data
+	data.xmax = 1;
+}
+
+void FileHandling::normalizeDataV2(ClassData &data)
+{
+	std::vector<float> minYcol;
+	std::vector<float> maxYcol;
+	std::vector<float> temp;
+
+	//float Ymax = 0;
+
+	std::vector<std::vector<float> > convertedValues; // NEW
+
+
+	float min = 0;
+	float max = 0;
+
+	for (int j = 0; j < data.ydata[0].size(); j++) {                                               // Gets the min and max of every column
+		for (int i = 0; i < data.ydata.size(); i++) {
+			if (data.ydata[i][j] > max) {
+				max = data.ydata[i][j];
+			}
+			if (data.ydata[i][j] < min) {
+				min = data.ydata[i][j];
+			}
+			//if (data.ydata[i][j] > Ymax) {
+			//	Ymax = data.ydata[i][j];
+			//}
+		}
+	}
+	minYcol.push_back(min);
+	maxYcol.push_back(max);
+	max = 0;
+	min = 0;
+
+	float original;
+	float currentMin;
+	float currentMax;
+	float converted;
+	for (int i = 0; i < data.ydata.size(); i++) {                                                  // Normalize the data from 0 - 1
+		for (int j = 0; j < data.ydata[0].size(); j++) {
+			original = data.ydata[i][j];
+			currentMin = minYcol[0];
+			currentMax = maxYcol[0];
+			converted = (original - currentMin) / (currentMax - currentMin);
+
+			temp.push_back(converted);
+		}
+		convertedValues.push_back(temp);
+		temp.clear();
+	}
+	data.ydata.clear();
+	data.ydata = convertedValues;																	// Fill ydata coordinates with normalized data  
+	convertedValues.clear();
+	data.xmax = data.ydata[0].size();																// Change xMax and yMax to normalized data
+	data.ymax = 1;
+	minYcol.clear();
+	maxYcol.clear();
+}

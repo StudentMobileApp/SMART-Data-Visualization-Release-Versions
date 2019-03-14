@@ -8,3 +8,7 @@ To run, SMART-Data-Vis-v1 > Release > OpenGL_on_a_Windows_Form.exe
 
 NOTE: The current executable has been tested and run on the lab computers (3/8/2019) from the release folder.
 NOTE2: We have found that opening the CSV file on your system first can prevent file handling errors.
+
+OTHER REQUIREMENTS:
+
+- Please have the CSV file sorted by class number.

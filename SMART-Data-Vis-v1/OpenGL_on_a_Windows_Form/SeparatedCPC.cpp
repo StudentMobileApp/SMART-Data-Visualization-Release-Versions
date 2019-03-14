@@ -83,7 +83,7 @@ void SeparatedCPC::drawData(float x1, float y1, int index, int curClass)
 
 	// Reminder: -x goes left, +x goes right, -y goes up, +y goes down, so origin starts from top left.
 	x1 -= (data.graphwidth / 2);
-	y1 -= (data.graphheight / 2);											// start x's and y's from the bottom left of the graph
+	y1 += (data.graphheight / 2);											// start x's and y's from the bottom left of the graph
 
 	glPushMatrix();															// Makes a new layer
 	glTranslatef(x1 + data.pan_x, y1 + data.pan_y, 0);						// Translates starting position to draw
@@ -92,7 +92,7 @@ void SeparatedCPC::drawData(float x1, float y1, int index, int curClass)
 	glColor3ub(data.classColor[curClass][0], data.classColor[curClass][1], data.classColor[curClass][2]);										// Line color
 	for (int i = 0; i < (signed)data.xdata[0].size(); i++)
 	{
-		glVertex2f(xratio * data.xdata[index][i], yratio * data.ydata[index][i]);
+		glVertex2f(xratio * data.xdata[index][i], -yratio * data.ydata[index][i]);
 	}
 	glEnd();
 
@@ -112,7 +112,7 @@ void SeparatedCPC::drawData(float x1, float y1, int index, int curClass)
 		}
 		glBegin(GL_POINTS);
 															   //glColor3f(data.red[curClass][i], data.green[curClass][i], data.blue[curClass][i]);
-		glVertex2f(	xratio *data.xdata[index][i], yratio * data.ydata[index][i]);
+		glVertex2f(	xratio *data.xdata[index][i], -yratio * data.ydata[index][i]);
 
 		glEnd();
 	}

@@ -29,9 +29,16 @@ Class OpenGLForm.COpenGL3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Int32 graphType : Public
     Int32 originalWH : Public
     Int32 originalWW : Public
+    Int32 cpPosx : Public
+    Int32 cpPosy : Public
   Methods:
+    resizeDrawingArea1(Int32): PrivateScope, Public, HideBySig
+    resizeDrawingArea2(Int32): PrivateScope, Public, HideBySig
+    resetDrawingArea(): PrivateScope, Public, HideBySig
     setClassColor(Single, Single, Single, Int32): PrivateScope, Public, HideBySig
     getClassSize(): PrivateScope, Public, HideBySig
+    setGraph5ColumnSize(Int32): PrivateScope, Public, HideBySig
+    setGraph5ConnectedLineColor(Single, Single, Single): PrivateScope, Public, HideBySig
     Render(): PrivateScope, Public, HideBySig
     Render2(): PrivateScope, Public, HideBySig
     Render3(): PrivateScope, Public, HideBySig

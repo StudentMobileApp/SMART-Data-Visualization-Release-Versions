@@ -57,6 +57,8 @@ void StandardTS::normalizeData()
 	std::vector<float> maxYcol;
 	std::vector<float> temp;
 
+	//float Ymax = 0;
+
 	std::vector<std::vector<float> > convertedValues; // NEW
 
 
@@ -71,18 +73,26 @@ void StandardTS::normalizeData()
 			if (data.ydata[i][j] < min) {
 				min = data.ydata[i][j];
 			}
+			//if (data.ydata[i][j] > Ymax) {
+			//	Ymax = data.ydata[i][j];
+			//}
 		}
-		minYcol.push_back(min);
-		maxYcol.push_back(max);
-		max = 0;
-		min = 0;
 	}
+	minYcol.push_back(min);
+	maxYcol.push_back(max);
+	max = 0;
+	min = 0;
+
+	float original;
+	float currentMin;
+	float currentMax;
+	float converted;
 	for (int i = 0; i < data.ydata.size(); i++) {                                                  // Normalize the data from 0 - 1
 		for (int j = 0; j < data.ydata[0].size(); j++) {
-			float original = data.ydata[i][j];
-			float currentMin = minYcol[j];
-			float currentMax = maxYcol[j];
-			float converted = (original - currentMin) / (currentMax - currentMin);
+			original = data.ydata[i][j];
+			currentMin = minYcol[0];
+			currentMax = maxYcol[0];
+			converted = (original - currentMin) / (currentMax - currentMin);
 
 			temp.push_back(converted);
 		}
@@ -94,6 +104,8 @@ void StandardTS::normalizeData()
 	convertedValues.clear();
 	data.xmax = data.ydata[0].size();																// Change xMax and yMax to normalized data
 	data.ymax = 1;
+	minYcol.clear();
+	maxYcol.clear();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,7 +139,7 @@ void StandardTS::drawData(float x1, float y1, int index)
 	float yratio = data.graphheight / data.ymax;
 
 	x1 -= (data.graphwidth / 2);                                                                    // Start x's and y's from the bottom left of the graph
-	y1 -= (data.graphheight / 2);
+	y1 += (data.graphheight / 2);
 
 	glPushMatrix();																					// Makes a new layer
 	glTranslatef(x1 + data.pan_x, y1 + data.pan_y, 0);                                              // Translates starting position to draw
@@ -142,7 +154,7 @@ void StandardTS::drawData(float x1, float y1, int index)
 	{
 		int ytest = data.ydata.size();
 
-		glVertex2f(xratio * (i), yratio * data.ydata[index][i]);
+		glVertex2f(xratio * (i), -yratio * data.ydata[index][i]);
 	}
 	glEnd();
 	glPointSize(4);
@@ -160,7 +172,7 @@ void StandardTS::drawData(float x1, float y1, int index)
 		}
 		glBegin(GL_POINTS);
 
-		glVertex2f(xratio * (i), yratio * data.ydata[index][i]);
+		glVertex2f(xratio * (i), -yratio * data.ydata[index][i]);
 
 		glEnd();
 	}
