@@ -416,7 +416,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->trackBar1->LargeChange = 1;
 			this->trackBar1->Location = System::Drawing::Point(9, 122);
 			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(185, 45);
+			this->trackBar1->Size = System::Drawing::Size(185, 90);
 			this->trackBar1->TabIndex = 9;
 			this->trackBar1->Scroll += gcnew System::EventHandler(this, &Form1::trackBar1_Scroll);
 			// 
@@ -427,7 +427,7 @@ namespace OpenGL_on_a_Windows_Form
 				static_cast<System::Byte>(0)));
 			this->ZoomingLabel->Location = System::Drawing::Point(15, 102);
 			this->ZoomingLabel->Name = L"ZoomingLabel";
-			this->ZoomingLabel->Size = System::Drawing::Size(43, 16);
+			this->ZoomingLabel->Size = System::Drawing::Size(79, 30);
 			this->ZoomingLabel->TabIndex = 11;
 			this->ZoomingLabel->Text = L"Zoom";
 			// 
@@ -456,7 +456,7 @@ namespace OpenGL_on_a_Windows_Form
 				static_cast<System::Byte>(0)));
 			this->PannningLabel->Location = System::Drawing::Point(15, 27);
 			this->PannningLabel->Name = L"PannningLabel";
-			this->PannningLabel->Size = System::Drawing::Size(57, 16);
+			this->PannningLabel->Size = System::Drawing::Size(106, 30);
 			this->PannningLabel->TabIndex = 10;
 			this->PannningLabel->Text = L"Panning";
 			// 
@@ -466,7 +466,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->fileToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1530, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1530, 40);
 			this->menuStrip1->TabIndex = 5;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -474,13 +474,13 @@ namespace OpenGL_on_a_Windows_Form
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->openToolStripMenuItem });
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(64, 36);
 			this->fileToolStripMenuItem->Text = L"File";
 			// 
 			// openToolStripMenuItem
 			// 
 			this->openToolStripMenuItem->Name = L"openToolStripMenuItem";
-			this->openToolStripMenuItem->Size = System::Drawing::Size(103, 22);
+			this->openToolStripMenuItem->Size = System::Drawing::Size(173, 38);
 			this->openToolStripMenuItem->Text = L"Open";
 			this->openToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::openToolStripMenuItem_Click);
 			// 
@@ -541,7 +541,7 @@ namespace OpenGL_on_a_Windows_Form
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(4, 1);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(127, 16);
+			this->label1->Size = System::Drawing::Size(181, 37);
 			this->label1->TabIndex = 12;
 			this->label1->Text = L"Change Class Color";
 			// 
@@ -553,7 +553,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(4, 42);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(192, 21);
+			this->comboBox1->Size = System::Drawing::Size(192, 33);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Form1::comboBox1_SelectedIndexChanged);
 			// 
@@ -565,7 +565,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->numericUpDown1->MaximumSize = System::Drawing::Size(56, 0);
 			this->numericUpDown1->MinimumSize = System::Drawing::Size(56, 0);
 			this->numericUpDown1->Name = L"numericUpDown1";
-			this->numericUpDown1->Size = System::Drawing::Size(56, 20);
+			this->numericUpDown1->Size = System::Drawing::Size(56, 31);
 			this->numericUpDown1->TabIndex = 10;
 			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 			this->numericUpDown1->ValueChanged += gcnew System::EventHandler(this, &Form1::numericUpDown1_ValueChanged);
@@ -575,7 +575,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(554, 8);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(0, 13);
+			this->label2->Size = System::Drawing::Size(0, 25);
 			this->label2->TabIndex = 11;
 			// 
 			// groupBox2
@@ -586,7 +586,7 @@ namespace OpenGL_on_a_Windows_Form
 			this->groupBox2->Size = System::Drawing::Size(197, 82);
 			this->groupBox2->TabIndex = 12;
 			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"TS-SPC-CPC Column Size";
+			this->groupBox2->Text = L"Number of Time Moments";
 			// 
 			// button1
 			// 
